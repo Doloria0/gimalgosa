@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>휴림로봇 | Advanced Bionics & Rehab Platform</title>
+    <meta name="description" content="휴림로봇 기반 지능형 로봇 솔루션 플랫폼 - 회사소개, 제품소개, 커뮤니티">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Firebase Compat v8 (Local file:// friendly) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+<body>
+
+    <div class="scroll-progress"></div>
+
+    <header class="glass">
+        <a href="#" class="logo" style="text-decoration: none; color: inherit;">휴림<span>로봇</span></a>
+        <nav>
+            <ul>
+                <li><a href="#about">회사소개</a></li>
+                <li><a href="#products">제품소개</a></li>
+                <li><a href="#business">사업영역</a></li>
+                <li><a href="#related">관련제품</a></li>
+                <li><a href="#community">커뮤니티</a></li>
+            </ul>
+        </nav>
+        <button class="btn-primary" onclick="openModal()" style="padding: 0.8rem 2rem; font-size: 0.8rem; border-radius: 50px;">문의하기</button>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <video autoplay muted loop playsinline poster="assets/hero_rehab.png">
+                    <source src="assets/hero_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <span class="section-tag" style="color: white; opacity: 0.8; margin-bottom: 2rem; display: block;">Advanced Rehabilitation & Bionics</span>
+                <h1 class="hero-title">휴림로봇.<br>New Era of Robotics.</h1>
+                <p class="hero-subtitle">가상과 현실을 잇는 고정밀 제어 알고리즘과 하드웨어의 혁신<br>우리는 로봇의 '육체적 지능'을 창조합니다.</p>
+                <div class="hero-btns" style="margin-top: 3rem;">
+                    <a href="#products" class="btn-primary">제품 라인업 보기</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 회사소개 (Company Vision & Mission) -->
+        <section id="about" class="section">
+            <span class="section-tag">Our Vision & Mission</span>
+            <h2 class="section-title">신체의 경계를 넘어,<br>일상으로의 복귀</h2>
+            
+            <div class="ceo-grid">
+                <div class="ceo-image-container glass" style="padding: 3rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, var(--surface), var(--bg-secondary));">
+                    <div style="font-size: 3rem; margin-bottom: 2rem;">🤝</div>
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--accent);">Human Centric</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">"상실이 아닌 새로운 시작으로,<br>당신의 멈춰진 걸음을 다시 움직입니다."</p>
+                    <p style="margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">몸의 불편함이 삶의 한계가 되지 않도록,<br>가장 든든한 신체가 되어 드립니다.</p>
+                </div>
+                <div class="ceo-content">
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem;">01. 따뜻한 기술 (Humanity)</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-primary);">다시 잡는 손, 다시 딛는 발걸음. 당신의 평범한 일상을 기술로 완성하며 삶의 자유를 다시 선물합니다.</p>
+                    </div>
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem;">02. 독보적 전문성 (Technical)</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-primary);">인간의 의지와 정밀 공학의 만남. 생체 신호와 로봇 기술을 융합하여 완벽한 거동의 자유를 실현합니다.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem;">03. 새로운 정의 (Innovation)</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-primary);">한계를 뛰어넘는 메카트로닉스 기술로 신체의 기능을 재정의하고, 기술로 세상을 잇는 힘이 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 제품소개 (휴림로봇 Products) -->
+        <section id="products" class="section" style="background: var(--bg-secondary);">
+            <span class="section-tag">Product Introduction</span>
+            <div class="product-grid">
+                <!-- Category 1: Industrial -->
+                <div class="glass" style="padding: 2.5rem; border-radius: 30px; display: flex; flex-direction: column;">
+                    <img src="assets/1.png" alt="Lower Body Exoskeleton" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid var(--glass-border);">
+                    <h3 style="font-size: 1.3rem; color: var(--accent); margin-bottom: 0.8rem;">하체 근력 보조 슈트</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">보행이 어려운 장기 부상자나 노약자의 보행을 돕는 하체 외골격 로봇입니다. 지면을 딛는 힘을 정밀하게 보조합니다.</p>
+                </div>
+                <!-- Category 2: Systems -->
+                <div class="glass" style="padding: 2.5rem; border-radius: 30px; display: flex; flex-direction: column;">
+                    <img src="assets/2.png" alt="Waist Exoskeleton" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid var(--glass-border);">
+                    <h3 style="font-size: 1.3rem; color: var(--accent); margin-bottom: 0.8rem;">웨어러블 허리 보조 로봇</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">무거운 짐을 들거나 고된 작업 환경에서 허리의 하중을 분산시켜 부상을 방지하고 작업 효율을 극대화하는 외골격 솔루션입니다.</p>
+                </div>
+                <!-- Category 4: AI & Bionics -->
+                <div class="glass" style="padding: 2.5rem; border-radius: 30px; display: flex; flex-direction: column;">
+                    <img src="assets/robot_ai_helper.png" alt="휠체어에 탑승한 사용자 옆에서 따뜻하게 보행 보조 및 감시를 수행하는 첨단 AI 휴머노이드 보조 로봇" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid var(--glass-border);">
+                    <h3 style="font-size: 1.3rem; color: var(--accent); margin-bottom: 0.8rem;">로봇 AI & 바이오닉스</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">사람을 향하는 첨단 지능형 로봇 AI 기술과 신체 보조를 위한 바이오닉스 솔루션으로 로봇 융합 시대를 선도합니다.</p>
+                </div>
+                <!-- Category 3: Service -->
+                <div class="glass" style="padding: 2.5rem; border-radius: 30px; display: flex; flex-direction: column;">
+                    <img src="assets/3.png" alt="Bionic Arm" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid var(--glass-border);">
+                    <h3 style="font-size: 1.3rem; color: var(--accent); margin-bottom: 0.8rem;">인공지능 생체 의수 (Bionic Arm)</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">사람의 근전도 신호를 실시간으로 읽어 실제 손처럼 정교하고 부드러운 움직임을 재현하는 차세대 바이오닉 암 솔루션입니다.</p>
+                </div>
+                <!-- Category 5: Assistive Integration -->
+                <div class="glass" style="padding: 2.5rem; border-radius: 30px; display: flex; flex-direction: column;">
+                    <img src="assets/assistive_robot_arm.png" alt="Assistive Integration Solution" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid var(--glass-border);">
+                    <h3 style="font-size: 1.3rem; color: var(--accent); margin-bottom: 0.8rem;">자립 생활 보조 통합 솔루션 (Assistive Integration Solution)</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">마비 환자의 식사, 도구 사용 등 일상 자립생활을 정밀 보조하는 통합 기술입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 사업영역 (Business Areas) -->
+        <section id="business" class="section" style="background: var(--bg-secondary); padding: 5rem 10%;">
+            <span class="section-tag">Business Areas</span>
+            <h2 class="section-title" style="text-align: center;">휴림로봇의 핵심 사업영역</h2>
+            <div class="business-grid">
+                
+                <!-- 1. 복지 (Welfare) -->
+                <div class="glass" style="padding: 2.5rem; border-radius: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Welfare</span>
+                        <h3 style="font-size: 1.6rem; margin: 0.8rem 0 1.2rem 0; color: var(--text-primary); line-height: 1.3;">1. 복지<br><span style="font-size: 1.1rem; color: var(--text-secondary); font-weight: 400;">(Welfare)</span></h3>
+                        
+                        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin-bottom: 2rem; font-weight: 500;">
+                            재활 기기는 일반 가전이나 IT 기기와 다릅니다. 환자의 신체적 제한과 심리적 상태를 깊이 이해해야 합니다.
+                        </p>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0;">
+                            <li style="position: relative; padding-left: 1.8rem; margin-bottom: 1.5rem; line-height: 1.7; font-size: 0.95rem; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; top: 0.2rem; color: var(--accent); font-weight: bold; font-size: 1.2rem;">o</span>
+                                <strong style="color: var(--text-primary); display: block; margin-bottom: 0.3rem; font-size: 1.05rem;">렌탈 및 구독 서비스 모델</strong>
+                                기기를 판매하는 데 그치지 않고, 치료 기간(예: 3개월, 6개월) 동안만 저렴하게 대여하고 반납하는 순환형 복지 모델을 구축할 수 있습니다.
+                            </li>
+                            <li style="position: relative; padding-left: 1.8rem; margin-bottom: 1.5rem; line-height: 1.7; font-size: 0.95rem; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; top: 0.2rem; color: var(--accent); font-weight: bold; font-size: 1.2rem;">o</span>
+                                <strong style="color: var(--text-primary); display: block; margin-bottom: 0.3rem; font-size: 1.05rem;">다양한 신체 조건 고려</strong>
+                                사고 유형에 따라 환자의 마비 정도, 관절 가동 범위, 근력이 완전히 다릅니다. 고정된 규격이 아니라, 환자 맞춤형으로 조절 가능한 모듈형 설계와 인체공학적 설계를 R&D의 핵심 과제로 삼고 있습니다.
+                            </li>
+                            <li style="position: relative; padding-left: 1.8rem; line-height: 1.7; font-size: 0.95rem; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; top: 0.2rem; color: var(--accent); font-weight: bold; font-size: 1.2rem;">o</span>
+                                <strong style="color: var(--text-primary); display: block; margin-bottom: 0.3rem; font-size: 1.05rem;">친절하고 정확한 상담 지원</strong>
+                                기기 검토부터 실사용 과정까지 환자와 보호자의 입장에서 경청하며, 환자의 상태와 거주 환경에 맞는 복지 혜택과 사용 가이드를 친절하고 정확하게 상담해 드립니다.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: var(--accent-glow); padding: 1.2rem 1.5rem; border-radius: 15px; border-left: 4px solid var(--accent); font-size: 0.9rem; line-height: 1.6; color: var(--text-primary); margin-top: 1rem;">
+                        <span style="font-weight: 700; display: block; margin-bottom: 0.3rem; color: var(--accent);">💡 복지 핵심 요약</span>
+                        합리적인 순환형 렌탈·구독 모델과 1:1 맞춤 상담, 인체공학 설계를 결합해 복지 서비스의 이용 부담을 크게 낮춥니다.
+                    </div>
+                </div>
+
+                <!-- 2. 연구개발 (R&D) -->
+                <div class="glass" style="padding: 2.5rem; border-radius: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">R&D</span>
+                        <h3 style="font-size: 1.6rem; margin: 0.8rem 0 1.2rem 0; color: var(--text-primary); line-height: 1.3;">2. 연구개발<br><span style="font-size: 1.1rem; color: var(--text-secondary); font-weight: 400;">(Research & Development)</span></h3>
+                        
+                        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin-bottom: 2rem; font-weight: 500;">
+                            단순히 신체를 움직여주는 기계적 장치를 넘어, 데이터 기반의 스마트 기기로 진화해야 경쟁력이 있습니다.
+                        </p>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0;">
+                            <li style="position: relative; padding-left: 1.8rem; margin-bottom: 1.5rem; line-height: 1.7; font-size: 0.95rem; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; top: 0.2rem; color: var(--accent); font-weight: bold; font-size: 1.2rem;">o</span>
+                                <strong style="color: var(--text-primary); display: block; margin-bottom: 0.3rem; font-size: 1.05rem;">생체 신호 및 운동 데이터 수집</strong>
+                                기기에 최첨단 센서를 탑재하여 환자의 근전도(EMG), 관절 각도, 가해지는 힘의 크기 등을 실시간으로 측정하고 체계적인 데이터를 수집하는 R&D를 전개합니다.
+                            </li>
+                            <li style="position: relative; padding-left: 1.8rem; margin-bottom: 1.5rem; line-height: 1.7; font-size: 0.95rem; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; top: 0.2rem; color: var(--accent); font-weight: bold; font-size: 1.2rem;">o</span>
+                                <strong style="color: var(--text-primary); display: block; margin-bottom: 0.3rem; font-size: 1.05rem;">AI 기반 맞춤형 재활 프로토콜</strong>
+                                축적된 생체 모션 데이터를 학습한 AI가 환자의 회복 속도를 분석하고, 당일 수행할 최적의 재활 난이도 및 보조 알고리즘을 지능적으로 맞춤형 추천합니다.
+                            </li>
+                            <li style="position: relative; padding-left: 1.8rem; line-height: 1.7; font-size: 0.95rem; color: var(--text-secondary);">
+                                <span style="position: absolute; left: 0; top: 0.2rem; color: var(--accent); font-weight: bold; font-size: 1.2rem;">o</span>
+                                <strong style="color: var(--text-primary); display: block; margin-bottom: 0.3rem; font-size: 1.05rem;">환자 및 의료진 개발 참여 (Co-creation)</strong>
+                                기획 초기 단계부터 재활의학과 전문의, 물리치료사, 그리고 실제 환자를 R&D 팀의 자문단으로 참여시킵니다. 의료진이 쓰기 편해야 추천을 하고, 환자가 편해야 지속적으로 사용할 수 있습니다.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: var(--accent-glow); padding: 1.2rem 1.5rem; border-radius: 15px; border-left: 4px solid var(--accent); font-size: 0.9rem; line-height: 1.6; color: var(--text-primary); margin-top: 1rem;">
+                        <span style="font-weight: 700; display: block; margin-bottom: 0.3rem; color: var(--accent);">💡 연구개발 핵심 요약</span>
+                        생체 신호 데이터 분석 및 AI 맞춤 알고리즘과 더불어, 의료진과 실제 환자가 직접 자문하는 현장 중심 R&D를 전개합니다.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 관련제품 (Bionic Accessories & Support) -->
+        <section id="related" class="section">
+            <span class="section-tag">Support & Ecosystem</span>
+            <h2 class="section-title">신뢰를 더하는 부품 및 지원 제품</h2>
+            <div class="related-grid">
+                <!-- Accessories -->
+                <div class="glass related-card" style="padding: 2.5rem; border-radius: 30px;">
+                    <img src="assets/nerve_electrode.png" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem;">
+                    <h4 style="font-size: 1.3rem; color: var(--accent); margin-bottom: 0.8rem;">고감도 신경 전극 키트</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">생체 신호를 노이즈 없이 포착하여 로봇에 전달하는 의료 등급 전극 패키지입니다.</p>
+                </div>
+                <div class="glass related-card" style="padding: 2.5rem; border-radius: 30px;">
+                    <img src="assets/rehab_software.png" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem;">
+                    <h4 style="font-size: 1.3rem; color: var(--accent); margin-bottom: 0.8rem;">재활 분석 소프트웨어</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">보행 패턴과 근육의 발달 상태를 정밀하게 분석하여 데이터 기반의 재활 컨설팅을 제공합니다.</p>
+                </div>
+                <div class="glass related-card" style="padding: 2.5rem; border-radius: 30px;">
+                    <img src="assets/charging_station.png" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem;">
+                    <h4 style="font-size: 1.3rem; color: var(--accent); margin-bottom: 0.8rem;">스마트 충전 스테이션</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">웨어러블 기기의 빠른 충전과 동시에 시스템의 상태를 실시간 점검하는 전용 도킹 시스템입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 커뮤니티 (Firebase Board) -->
+        <section id="community" class="section" style="background: var(--bg-secondary);">
+            <span class="section-tag">Community Hub</span>
+            <h2 class="section-title">커뮤니티</h2>
+            
+            <div class="community-container">
+                <div class="post-form-container glass">
+                    <h3>글쓰기</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 2rem;">기술 문의 및 소통을 환영합니다.</p>
+                    <form class="post-form" id="community-form">
+                        <input type="text" id="post-author" placeholder="작성자 명" required>
+                        <input type="password" id="post-password" placeholder="비밀번호 (수정/삭제용)" required>
+                        <textarea id="post-content" rows="6" placeholder="내용을 입력하세요..." required></textarea>
+                        <button type="submit" class="btn-primary" style="width: 100%;">글 올리기</button>
+                    </form>
+                </div>
+                <div class="post-list" id="community-posts">
+                    <!-- Posts will be injected here -->
+                    <div class="post-item glass">
+                        <div class="post-header">
+                            <span>Admin</span>
+                            <span>2026.05.11</span>
+                        </div>
+                        <p>환영합니다! Firebase로 구동되는 실시간 커뮤니티 게시판입니다. 자유롭게 의견을 남겨주세요.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 4rem 10%; border-top: 1px solid var(--glass-border); text-align: center; line-height: 1.8;">
+        <a href="#" class="logo" style="justify-content: center; margin-bottom: 1.5rem; text-decoration: none; color: inherit;">휴림<span>로봇</span></a>
+        <div style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; word-break: keep-all;">
+            <p style="margin-bottom: 0.5rem;">주소: 08221 서울시 구로구 경인로 445 ([구]고척동 62-160) 동양미래대학교</p>
+            <p>전화번호: <a href="tel:010-3795-7443" style="color: inherit; text-decoration: none; font-weight: 500;">010-3795-7443</a></p>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.8rem; opacity: 0.8;">&copy; 2026 휴림로봇(주) | Bionic & Neuro-Rehab Technology</p>
+    </footer>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiryModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 style="margin-bottom: 2rem; color: var(--accent);">휴림로봇에 문의하기</h2>
+            <form id="inquiryForm" onsubmit="handleInquiry(event)">
+                <div class="form-group">
+                    <label>성명 / 회사명</label>
+                    <input type="text" id="inquiryName" required placeholder="예: 홍길동 / 휴림바이오닉스">
+                </div>
+                <div class="form-group">
+                    <label>이메일 주소</label>
+                    <input type="email" id="inquiryEmail" required placeholder="contact@example.com">
+                </div>
+                <div class="form-group">
+                    <label>문의 분야</label>
+                    <select id="inquiryType" required style="width: 100%; padding: 1.2rem; background: #ffffff; border: 1px solid #e0e0e0; color: #000000; border-radius: 12px;">
+                        <option value="" disabled selected>문의 분야를 선택해주세요</option>
+                        <option value="product">제품 구매 및 기술 상담</option>
+                        <option value="partnership">비즈니스 제안 및 파트너십</option>
+                        <option value="as">A/S 및 기술 지원</option>
+                        <option value="other">기타 일반 문의</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>문의 내용</label>
+                    <textarea id="inquiryMessage" required placeholder="문의하실 내용을 상세히 적어주세요."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">문의 보내기</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Refined Script -->
+    <script src="script.js"></script>
+</body>
+</html>
